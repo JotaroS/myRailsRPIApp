@@ -1,9 +1,9 @@
-#requi re 'pi_piper'
+require 'pi_piper'
 
 class UserController < ApplicationController
   $button_msg = 'Hello'
   $serial_msg = 'Serial device is (or maybe) ready'
-  #$pin_led=PiPiper::Pin.new :pin => 4, :direction => :out
+  $pin_led=PiPiper::Pin.new :pin => 4, :direction => :out
   def index
     @user = User.new
   end
@@ -29,7 +29,6 @@ class UserController < ApplicationController
     print @user[:data]
     $serial_msg= @user[:data] << " was sent."
     if @user[:data] == "1"
-
     end
     redirect_to '/user/index'
   end
