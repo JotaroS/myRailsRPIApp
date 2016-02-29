@@ -74,7 +74,12 @@
       <div class="panel panel-default">
         <div class="panel-heading">Yet another content</div>
         <div class="panel-body">
-          yet another modules here
+          <p>Input data to send on serial below.</p>
+          <div class="alert alert-success" role="alert"><p><%= $serial_msg %></p></div>
+          <%= form_for(@user, :url => {:action => 'serial'}) do |f| %>
+          <%= f.text_field  :data ,:class => "form-control"   %><br>
+          <%= f.submit"決定",:class => "btn btn-default",:action=>'serial' %><br />
+          <% end %>
         </div>
       </div>
     </div>
