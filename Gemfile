@@ -46,3 +46,7 @@ group :development do
 end
 
 
+gem "pi_piper", "~> 1.3.2"
+
+
+gem 'serialport'
