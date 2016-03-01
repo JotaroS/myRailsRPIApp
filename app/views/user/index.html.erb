@@ -58,6 +58,30 @@
   <h2>About</h2>
     <p>This app will control raspberry-pi gpio output, serial, websocket, and more comming.</p>
     <br>
+
+    <div class = "col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Farmbot head controller</div>
+        <div class="panel-body">
+          <p>Lorem ipsum dolor sit amet, ius nostro detraxit cu, summo cotidieque eu sea. Sit assentior percipitur complectitur no, ad paulo tantas legere his, at est
+            sonet explicari. Id sit error munere comprehensam. His in sonet epicurei.</p>
+          <!-- <div class="alert alert-success" role="alert"><p></p></div> -->
+
+          <div class = "col-md-6">
+            <%= button_to "↓",{ :action => "button" ,:name => "on_button"},:class=>'btn btn-success'%>
+            <%= button_to "↑",{ :action => "button" ,:name => "on_button"},:class=>'btn btn-success'%>
+            <%= button_to "→",{ :action => "button" ,:name => "on_button"},:class=>'btn btn-success'%>
+            <%= button_to "←",{ :action => "button" ,:name => "on_button"},:class=>'btn btn-success'%>
+          </div>
+
+          <div class = "col-md-6">
+            aaa
+          </div>
+
+        </div>
+      </div>
+    </div>
+
     <div class = "col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">On-board LED controll</div>
@@ -72,16 +96,20 @@
 
     <div class = "col-md-6">
       <div class="panel panel-default">
-        <div class="panel-heading">Yet another content</div>
+        <div class="panel-heading">Serial signal send form</div>
         <div class="panel-body">
           <p>Input data to send on serial below.</p>
           <div class="alert alert-success" role="alert"><p><%= $serial_msg %></p></div>
-          <%= form_for(@user, :url => {:action => 'serial'}) do |f| %>
-          <%= f.text_field  :data ,:class => "form-control"   %><br>
-          <%= f.submit"決定",:class => "btn btn-default",:action=>'serial' %><br />
-          <% end %>
+          <div class = 'input-group'>
+            <%= form_for(@user, :url => {:action => 'serial'}) do |f| %>
+            <%= f.text_field  :data ,:class => "form-control"   %><br>
+            <%= f.submit"Send",:class => "btn btn-primary",:action=>'serial' %>
+            <% end %>
+        </div>
         </div>
       </div>
     </div>
+
+
 
 </div><!-- container -->
