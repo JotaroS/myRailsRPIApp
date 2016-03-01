@@ -56,15 +56,15 @@
 
   <h1>Welcome to testapp</h1>
   <h2>About</h2>
-    <p>This app will control raspberry-pi gpio output, serial, websocket, and more comming.</p>
-    <br>
+  <p>This app will control raspberry-pi gpio output, serial, websocket, and more comming.</p>
+  <br>
 
-    <div class = "col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">Farmbot head controller</div>
-        <div class="panel-body">
-          <p>Lorem ipsum dolor sit amet, ius nostro detraxit cu, summo cotidieque eu sea. Sit assentior percipitur complectitur no, ad paulo tantas legere his, at est
-            sonet explicari. Id sit error munere comprehensam. His in sonet epicurei.</p>
+  <div class = "col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Farmbot head controller</div>
+      <div class="panel-body">
+        <p>Lorem ipsum dolor sit amet, ius nostro detraxit cu, summo cotidieque eu sea. Sit assentior percipitur complectitur no, ad paulo tantas legere his, at est
+          sonet explicari. Id sit error munere comprehensam. His in sonet epicurei.</p>
           <!-- <div class="alert alert-success" role="alert"><p></p></div> -->
 
           <div class = "col-md-6">
@@ -98,18 +98,22 @@
       <div class="panel panel-default">
         <div class="panel-heading">Serial signal send form</div>
         <div class="panel-body">
-          <p>Input data to send on serial below.</p>
-          <div class="alert alert-success" role="alert"><p><%= $serial_msg %></p></div>
-          <div class = 'input-group'>
-            <%= form_for(@user, :url => {:action => 'serial'}) do |f| %>
+          <p>Serial device connection and setting below. <p class ='text-danger'>Sending signal can cause bot's head to move.</p></p>
+          <div class = "col-md-6">
+            <div class="alert alert-success" role="alert"><p><%= $serial_msg %></p></div>
+              <%= form_for(@user, :url => {:action => 'serial'}) do |f| %>
+              <%= f.text_field  :data ,:class => "form-control"   %><br>
+              <%= f.submit"Submit",:class => "btn btn-primary",:action=>'serial' %><br>
+              <% end %>
+          </div>
+          <div class = "col-md-6">
+            <div class="alert alert-warning" role="alert"><p>Serial device is set to '<%= $serial_dev %>'</p></div>
+            <%= form_for(@user, :url => {:action => 'serial_dev'}) do |f| %>
             <%= f.text_field  :data ,:class => "form-control"   %><br>
-            <%= f.submit"Send",:class => "btn btn-primary",:action=>'serial' %>
+            <%= f.submit"Submit",:class => "btn btn-warning",:action=>'serial_dev' %><br>
             <% end %>
-        </div>
+          </div>
         </div>
       </div>
     </div>
-
-
-
-</div><!-- container -->
+  </div><!-- container -->

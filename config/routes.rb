@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'user/index'
-  match 'user/serial'  => 'user#serial',:via => :post  
+  match 'user/serial'  => 'user#serial',:via => :post
+  match 'user/serial_dev'  => 'user#serial_dev',:via => :post 
   post 'user' => 'user#button'
 
   resources :steps
